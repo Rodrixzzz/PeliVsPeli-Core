@@ -10,8 +10,8 @@ using PeliVsPeli_Core.Models;
 namespace PeliVsPeli_Core.Migrations
 {
     [DbContext(typeof(EFContex))]
-    [Migration("20190310065306_seed")]
-    partial class seed
+    [Migration("20190310210025_Test")]
+    partial class Test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,19 +40,19 @@ namespace PeliVsPeli_Core.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(479),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(1928),
                             Name = "Tom Hanks"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(492),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(1941),
                             Name = "Robin Wright"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(492),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(1941),
                             Name = "Matt Damon"
                         });
                 });
@@ -108,6 +108,34 @@ namespace PeliVsPeli_Core.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PeliVsPeli_Core.Models.Competition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ActorId");
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<int?>("DirectorId");
+
+                    b.Property<int?>("GenreId");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActorId");
+
+                    b.HasIndex("DirectorId");
+
+                    b.HasIndex("GenreId");
+
+                    b.ToTable("Competitions");
+                });
+
             modelBuilder.Entity("PeliVsPeli_Core.Models.Director", b =>
                 {
                     b.Property<int>("Id")
@@ -127,19 +155,19 @@ namespace PeliVsPeli_Core.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(5513),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(6601),
                             Name = "Steven Spielberg"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(5526),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(6610),
                             Name = "Robert Zemeckis"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(5526),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(6610),
                             Name = "George Lucas"
                         });
                 });
@@ -202,19 +230,19 @@ namespace PeliVsPeli_Core.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 741, DateTimeKind.Local).AddTicks(7717),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 489, DateTimeKind.Local).AddTicks(1535),
                             Name = "Action"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 742, DateTimeKind.Local).AddTicks(7929),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 489, DateTimeKind.Local).AddTicks(9947),
                             Name = "Drama"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 742, DateTimeKind.Local).AddTicks(7932),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 489, DateTimeKind.Local).AddTicks(9954),
                             Name = "Comedy"
                         });
                 });
@@ -254,7 +282,7 @@ namespace PeliVsPeli_Core.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(1363),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(2866),
                             Duration = 142,
                             GenreId = 3,
                             Name = "Forrest Gump",
@@ -267,7 +295,7 @@ namespace PeliVsPeli_Core.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(4617),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(5807),
                             Duration = 169,
                             GenreId = 1,
                             Name = "Saving Private Ryan",
@@ -280,7 +308,7 @@ namespace PeliVsPeli_Core.Migrations
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2019, 3, 10, 3, 53, 5, 743, DateTimeKind.Local).AddTicks(4639),
+                            DateCreated = new DateTime(2019, 3, 10, 18, 0, 25, 490, DateTimeKind.Local).AddTicks(5826),
                             Duration = 128,
                             GenreId = 2,
                             Name = "The Terminal",
@@ -290,6 +318,30 @@ namespace PeliVsPeli_Core.Migrations
                             ReleaseYear = 2004,
                             Score = 8f
                         });
+                });
+
+            modelBuilder.Entity("PeliVsPeli_Core.Models.Vote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CompetitionId");
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<int?>("MovieId");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompetitionId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("Votes");
                 });
 
             modelBuilder.Entity("PeliVsPeli_Core.Models.ActorMovie", b =>
@@ -303,6 +355,21 @@ namespace PeliVsPeli_Core.Migrations
                         .WithMany("Actors")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PeliVsPeli_Core.Models.Competition", b =>
+                {
+                    b.HasOne("PeliVsPeli_Core.Models.Actor", "Actor")
+                        .WithMany()
+                        .HasForeignKey("ActorId");
+
+                    b.HasOne("PeliVsPeli_Core.Models.Director", "Director")
+                        .WithMany()
+                        .HasForeignKey("DirectorId");
+
+                    b.HasOne("PeliVsPeli_Core.Models.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId");
                 });
 
             modelBuilder.Entity("PeliVsPeli_Core.Models.DirectorMovie", b =>
@@ -324,6 +391,17 @@ namespace PeliVsPeli_Core.Migrations
                         .WithMany("Movies")
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PeliVsPeli_Core.Models.Vote", b =>
+                {
+                    b.HasOne("PeliVsPeli_Core.Models.Competition", "Competition")
+                        .WithMany()
+                        .HasForeignKey("CompetitionId");
+
+                    b.HasOne("PeliVsPeli_Core.Models.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId");
                 });
 #pragma warning restore 612, 618
         }

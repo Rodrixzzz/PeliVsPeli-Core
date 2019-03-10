@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PeliVsPeli_Core.Models
 {
-    public class Entidad
+    public abstract class Entidad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

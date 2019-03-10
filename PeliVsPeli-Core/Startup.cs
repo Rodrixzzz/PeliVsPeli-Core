@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using PeliVsPeli_Core.Models;
+using PeliVsPeli_Core.Extensions;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace PeliVsPeli_Core
 {
@@ -28,6 +30,9 @@ namespace PeliVsPeli_Core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<EFContex>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CompetitionDB")));
+            services.ConfigureCors();
+            services.ConfigureIISIntegration();
+            services.ConfigureRepositoryWrapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -45,6 +50,14 @@ namespace PeliVsPeli_Core
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("CorsPolicy");
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.All
+            });
+
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }
