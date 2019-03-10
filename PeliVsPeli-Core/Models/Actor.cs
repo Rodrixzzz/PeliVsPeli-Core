@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace PeliVsPeli_Core.Models
 {
-    public class Actor:Person
+    public class Actor:Entidad
     {
-
+        public ICollection<ActorMovie> Movies { get; set; }
     }
 }

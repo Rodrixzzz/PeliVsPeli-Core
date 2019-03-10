@@ -7,6 +7,6 @@ namespace PeliVsPeli_Core.Models
 {
     public class Genre:Entidad
     {
-        ICollection<Movie> Movies { get; set; }
+       public virtual ICollection<Movie> Movies { get; set; }
     }
 }

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace PeliVsPeli_Core.Models
 {
-    public class Entidad
+    public class ActorMovie
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public DateTime DateCreated { get; set; }
+        public Movie Movie { get; set; }
+        public int MovieId { get; set; }
+        public Actor Actor { get; set; }
+        public int ActorId { get; set; }
     }
 }
